@@ -1,0 +1,129 @@
+{
+  "entities": {
+    "NonConformite": {
+      "title": "Non-Conformité Sheet",
+      "description": "Fiche de Non-Conformité (NC)",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "NC Identifier (NC-PROD-YYYY-XXXX)" },
+        "shift": { "type": "string" },
+        "team": { "type": "string" },
+        "supervisor": { "type": "string" },
+        "ncDate": { "type": "string" },
+        "ncTime": { "type": "string" },
+        "detectorName": { "type": "string" },
+        "detectorFunction": { "type": "string" },
+        "serviceConcerned": { "type": "string" },
+        "detectionMethod": { "type": "string" },
+        "source": { "type": "string" },
+        "productType": { "type": "string" },
+        "articleCode": { "type": "string" },
+        "articleLabel": { "type": "string" },
+        "clients": { "type": "string" },
+        "machine": { "type": "string" },
+        "quantityKg": { "type": "number" },
+        "quantityUnitDetails": { "type": "string" },
+        "ofNumber": { "type": "string" },
+        "originSection": { "type": "string" },
+        "manufacturingDate": { "type": "string" },
+        "shortTitle": { "type": "string" },
+        "description": { "type": "string" },
+        "possibleCauses": { "type": "string" },
+        "decision": { "type": "string" },
+        "cause5M": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "ncDate", "detectorName", "serviceConcerned", "shortTitle"]
+    },
+    "BonDeTransfert": {
+      "title": "Bon de Transfert",
+      "description": "Bon de transfert de matériel non conforme",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "btNumber": { "type": "string" },
+        "btType": { "type": "string" },
+        "constatDate": { "type": "string" },
+        "sender": { "type": "string" },
+        "quantityKg": { "type": "number" },
+        "status": { "type": "string" }
+      },
+      "required": ["id", "btNumber", "constatDate", "sender", "status"]
+    },
+    "ClientComplaint": {
+      "title": "Réclamation Client",
+      "description": "Réclamation portée par un client",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "clientName": { "type": "string" },
+        "reclamationDate": { "type": "string" },
+        "status": { "type": "string" }
+      },
+      "required": ["id", "clientName", "reclamationDate", "status"]
+    },
+    "AuditLog": {
+      "title": "Trace d'Audit",
+      "description": "Journal des actions utilisateurs",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "userName": { "type": "string" },
+        "action": { "type": "string" }
+      },
+      "required": ["id", "timestamp", "userName", "action"]
+    },
+    "NotificationLog": {
+      "title": "Alerte / Notification Email",
+      "description": "Journal d'envoi des notifications",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "recipientEmail": { "type": "string" },
+        "status": { "type": "string" }
+      },
+      "required": ["id", "timestamp", "recipientEmail", "status"]
+    },
+    "User": {
+      "title": "Utilisateur Habilité",
+      "description": "Profil et habilitations utilisateur",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "role": { "type": "string" }
+      },
+      "required": ["id", "name", "email", "role"]
+    }
+  },
+  "firestore": {
+    "/nonConformites/{ncId}": {
+      "schema": "NonConformite",
+      "description": "Collection de fiches de non-conformité"
+    },
+    "/bonsDeTransfert/{btId}": {
+      "schema": "BonDeTransfert",
+      "description": "Collection des bons de transfert"
+    },
+    "/clientComplaints/{complaintId}": {
+      "schema": "ClientComplaint",
+      "description": "Collection des réclamations clients"
+    },
+    "/auditLogs/{logId}": {
+      "schema": "AuditLog",
+      "description": "Collection des traces d'audit"
+    },
+    "/notificationLogs/{notifId}": {
+      "schema": "NotificationLog",
+      "description": "Collection des alertes emails"
+    },
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Collection des comptes utilisateurs"
+    }
+  }
+}

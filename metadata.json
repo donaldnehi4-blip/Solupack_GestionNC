@@ -1,0 +1,6 @@
+{
+  "name": "SOLUPACK - Gestion des Non-Conformités",
+  "description": "Système de gestion des non-conformités, réclamations clients et bons de transfert internes pour SOLUPACK S.A. (Plasturgie - Emballages Souples), conforme à l'ISO 9001:2015.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
